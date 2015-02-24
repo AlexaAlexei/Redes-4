@@ -1,0 +1,30 @@
+*************************************Introducción a redes WAN*******************************************
+
+--La funcionalidad de una red WAN es conectar redes LAN
+
+Sw virtuAl
+Wan metroethernet es solo con sw 
+LAN {
+-Campus
+-Data Center
+-Trabajo en casa
+-Home Office
+-Oficina
+
+MODELO
+OSI
+Aplicación:
+Presentacion: analisa cada tipo de dato, que contenga una pagina
+Sesion:tiempos de conexiones 
+Trasporte:http 80 
+
+
+
+TCP Protocolo de Control de Transmisión SEGURO
+Protocolo datagrama usuario UDP NO ES SEGURO
+CAPA 4
+CAPA 3 RED PROTOCOLO X25 PROTOCOLO IP
+Agrega ip (protolo de internet) dirección ip de 32 bits y 4 octetos sirve para enrutar y mandar información entre las redes
+Otros protocolos de internet ipx, appalt talk, decnet,SNA   
+Capa 2 trama-frame mac dirección física PROTOCOLOS WAN(ATM,PPP,FRAME RELAY) PROTOCOLO ETHERNET
+Física bits conexiones mecánicas eléctricas  TODO ESTO ES DE WAN
