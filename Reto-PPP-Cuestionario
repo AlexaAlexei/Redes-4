@@ -1,0 +1,91 @@
+*****¿Qué sucede cuando un extremo del enlace serial se encapsula con PPP y el otro
+extremo del enlace se encapsula con HDLC?*****
+
+--La adyacencia establecida por el protocolo ospf se cae y tambien la vecindad con la interface serial con el R2
+--Por otra parte la interfaz s0/0/0 tiene problema con la conexion pues se pone en linea de protocolo down
+--empieza la fase de establesimiento de ppp
+
+****¿Cuáles son los pasos que atraviesa PPP cuando el otro extremo del enlace serial en
+R2 se configura con la encapsulación PPP?****
+
+--Se recibe un mensaje del protocolo de control de enlacace diciendo que el estado esta abierto
+--PPP anda en estado de envio de packetes para poder establecer
+--Se logra establecer la fase y se activa 
+--Ya no hay errores de conexion en el s0/0/0 por lo tanto su estado esta arriba
+--se vuelve a encontrar la adyacencia con la s0/0/0 del R1
+
+****¿Qué sucede cuando la encapsulación PPP se configura en cada extremo del enlace
+serial?****
+
+--El protocolo de capa 2 se activa y ahora el modo de ancapsulamiento de las interfaces serieales son ppp
+--Ya no hay errores de conexion en el s0/0/0 por lo tanto su estado esta arriba
+--Se vuelve a encontrar la adyacencia con la s0/0/0 del R1
+
+****¿Cuándo se activa el protocolo de línea en el enlace serial y se restablece la
+adyacencia OSPF?****
+
+--Cuando se establece el encapsulamiento por ppp en las dos Interfaces seriales
+
+****¿Por qué resulta útil interrumpir intencionalmente una configuración?
+
+---Para observar los problemas que surgian en la conectividad
+
+****¿Por qué ambas interfaces se desactivan, luego se activan y finalmente vuelven a
+desactivarse?****
+
+--Porque existen problemas en la configuracion entre las intserfaces seriales en ambos Routers
+y porque al haber un problema de negociacion de velocidad ocurre el fallo de up a down
+
+
+*****¿Hay otra forma de cambiar la encapsulación de una interfaz serial de PPP a la
+encapsulación HDLC por defecto que no sea mediante el comando encapsulation
+hdlc? (Ayuda: está relacionada con el comando no).*****
+
+---R2(config-if)#no encap ppp
+
+
+
+****¿Qué sucede cuando la autenticación PPP PAP sólo se configura en un extremo del
+enlace serial?****
+
+--Pasa lo mismo que al configurar ppp y hdlc, se pierde la adyacencia de ospf y existen problemas
+de conexcion por lo que la linea de capa 2 cambia a  estado  down
+
+
+
+****¿Qué sucede cuando la autenticación PPP PAP se configura en ambos extremos del
+enlace serial?*****
+
+--Ya no existen problemas en la configuracion de la capa 2 y se cambia el estado a up
+--Por otra parte se vuelve a establecer la adyacencia de ospf con el R1
+
+
+****Observe que el protocolo de línea en la interfaz serial 0/0/1 cambia su estado a UP
+incluso antes de que se configure la interfaz para la autenticación CHAP. ¿Puede
+adivinar por qué sucede esto?*****
+
+--Porque resiva el nombre de usuario del Router2 y su contraseña para establecer la comunicacion
+y por eso ya hay error de conexion y se levanta el protocolo de capa 2
+
+
+****¿El cambio de protocolo de autenticación a PAP en la interfaz serial 0/0/1 produce la
+interrupción de la autenticación entre R2 y R3?*****
+
+---SI, ya no podemos establecer comunicacion hacia el R3
+
+
+
+
+
+****Después de la recarga, ¿cuál es el estado del protocolo de línea en serial 0/0/1?****
+
+---down
+
+
+
+
+
+
+
+
+
