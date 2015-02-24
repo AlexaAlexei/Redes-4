@@ -1,0 +1,76 @@
+Conceptos:
+PORT CHANNEL : ES HACER MUCHO ENLACES EN UN SW PARA INCREMENTAR SU VELOCIDAD
+
+
+1-BORRAR CONFIGURACION EN EL ROUTER
+
+erase startup-config
+write erase
+erase nvram
+
+2-dir en # muestra los archivos del directorio o flash
+muestra los datos de la flash
+delete start
+delete vlan.dat   * para borrar las vlans ya que con erase no  borra las vlans*
+
+3-Desabilitarla resolucion de DNS
+solo se habilita para los Routers con salida a intenert como los ISP JUNTO CON 
+(config)# no ip domain-lookup
+escuando te equivocas y te pone la direccion que intenta resolver:quitar control+mayus+6
+
+4- Ping es para pruebas de conmunicacion
+
+5-CONTRASEÑAS
+
+enable password cisco -este es sin incriptar
+enable secret cisco --- este encripta
+
+service password-encription --para enceriptar todas las contraseñas
+
+
+
+
+6-configurar la contraseña para consola
+para pedir contraseña al intentar configurar a partir de la consaola
+
+lin con 
+password cisco
+
+7-confiurar el registro dedatos asincrono
+
+--Es para seguir escribiendo sin que estorben los datos que suceden en la operacion deldispositivo
+
+
+
+8-CONFIGURAR VTY
+
+
+line vty 0 15 (son las que tenga el dispositivo)
+EXEC-TIMEOUT
+PASSWORD LOL
+LOGGING synchronous
+
+
+show user no muestra que numero de sesion esta usando un usuario asi -->   sesion numero         ip       usuario
+                                                                                0               x.x.x.x     rodrigo
+
+para sacarlo es: clear line 0
+
+PARA  PONERLE LA CONEXION VTY ACTIVO QUE TIEMPO
+
+EXEC-TIMEOUT MINUTOS SEGUNDOS
+EXEC-TIMEOUT 0 0 ES PARA HACERLO INFINITO
+
+aplicaciones para telnet windows , putty y srt
+
+telnet puerto 23 sin seguridad
+ssh 22 puerto 22 encriptado
+
+
+trunk signfiica que dara de alta mas deuna vlan
+el prinmer down es fisico
+el segundo es capa 2 wan
+
+
+show int s0/0/0 
+encapsulation muestra que encapsulamiento usa HDLC de cisco 
