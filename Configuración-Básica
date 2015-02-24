@@ -1,0 +1,17 @@
+Denominacion del Router------ Router(config)#Hostname name
+
+Configuración de Contraseñas--Router(config)#enable secret password //contraseña encriptada
+                            --Router(config)#enable password password //contraseña sin encriptar
+                              Router(config)# line console 0
+                                             password password
+                                             logging synchronous
+                                             login
+                                             exit
+                              Router(config)#line vty 0 5
+                                               password password
+                                               logging synchronous
+                                               login
+                                               exit
+                              Router(config)#banner motd #mensaje#
+                              Router(config)#no ip domain lookup
+                              Router(config)#service password-encryption
