@@ -1,0 +1,84 @@
+//////////////////////////////PROTOCOLOS CAPA 2-WAN
+
+Debug: 
+--Se puede aplicar para cualquier proceso o funcionalidad del equipo
+--Para mirar los elementos que interactuan en ese proceso
+--Se usa para ver los paquetes que se van enviando y que hacen 
+---Ayuda a ver todos los eventos que se tienen que presentar en los equipos(debug ip ospf)
+
+Encapsulacion: como dar tratamiento a la informacion
+
+PROTOCOLOS DE TRASPORTE:
+
+*********HDLC:
+como trasportar los paquetes, manda a la capa 4 trasporte que el faltan paquetes si hay perdida de informacion
+
+**********Desventaja
+no tiene autenticacion
+
+
+********PPP:
+ventajas
+
+--Seguridad En la recuperacion de informacion
+--Recuperacion de errores
+--Seguridad Acceso de Usuario(necesita password y usuario)
+--Cifrado(autenticacion)
+--Protocolo WAN Estandar(puede configurarse en otro modelos de roiter)
+
+Desventajas
+--lento
+--Guenera saturacion en el medio de comunicacion(Overhead: no es informacion)
+
+PPP
+
+PROTOCOLO PARA TRASMITIR PAQUETES, EN CABLES SINCRONOS=MISMA VELOCIDAD, ASINCRONOS=/DIFERENTE VELOCIDAD
+
+LCP:PROTOCOLO DE CONTROL DE ENLACE,METODO PARA ESTABLECER,CONFIGRAR Y MATENER , Y TERMINAR LOS ENLACES PUNTOS A PUNTO.(Este establece el enlace)
+
+NCP:PROTOCOLO DE CONTROL DE RED, METODO APRA ESTABLECER Y CONFIGURAR DIFERENTES PROTOCO,OS DE CADA DE RED(son direccionamientos logicos,DecNet,IP,IPDX,APPLE TALK,ETC), (ESTE SE ENCARGA
+DE VER QUE PROTOCOLO DE CAPA 3 VA PASAR SOBRE EL),DE ESTE MODO PERMITE EL USO DE SIMULTANE DE MULTIPLES PROTOCOLOS DE CAPA 3.
+Este no es protocolo capa 3.
+
+
+
+
+
+
+********************como configurar  PPP************
+
+
+
+int s0/0
+encap ppp
+*******************PARA RECURSOS PARA AUTENTIFICAR
+
+PPP AUTHENTIFICATION [CHAP/PP]
+
+COMANDOS PARA VERIFICAR ENCAPSULAMIENTO
+Show int s0/0
+show run
+
+
+COMANDOS PARA MONITOREO DE ACTIVIDAD PPP
+debug ppp negotiation (muestro los procesos mpor los que pasa ppp,para verificar contraseñas)
+debug ppp aythentification(
+
+
+
+
+Multienalnce:para sumar sumar los enalnces y crear uno solo
+*****PPP MODOS DE CONFIGURAR SEGURIDAD
+
+PAP: ENVIA PASSWORD SIN CIFRAR, SOLO AUNTENTICA EL ESTABLECIMIENTO DE LA SESION
+
+
+CHAP:AUTENTIFICA EL ESTYABLECIMEINTO DE LA SESION Y PERIODICAMENTE DURANTE LA ESESION ENVIA UN VALOR DE DESARIO (HASH)
+
+
+
+
+
+
+
+
